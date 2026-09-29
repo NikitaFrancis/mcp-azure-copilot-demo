@@ -1,0 +1,27 @@
+{
+  "servers": {
+    "azure-ai-foundry": {
+      "type": "stdio",
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": [
+        "${workspaceFolder}/mcp_server.py"
+      ],
+      "env": {
+        "FOUNDRY_PROJECT_ENDPOINT": "${input:foundryProjectEndpoint}",
+        "FOUNDRY_AGENT_NAME": "${input:foundryAgentName}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "foundryProjectEndpoint",
+      "description": "Azure AI Foundry project endpoint"
+    },
+    {
+      "type": "promptString",
+      "id": "foundryAgentName",
+      "description": "Name of the existing Azure AI Foundry agent"
+    }
+  ]
+}
